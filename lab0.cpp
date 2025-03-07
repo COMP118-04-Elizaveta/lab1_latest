@@ -26,28 +26,37 @@ int main() {
     int choice;
     int length = 0;
     int height = 0;
-
-    cout << "\n1) Draw a horizontal line";
-    cout << "\n2) Draw a vertical line";
-    cout << "\n3) Draw a square";
-    cout << "\n4) Draw a square filled";
-    cout << "\n5) Draw a rectangle";
-    cout << "\n6) Draw a rectangle filled";
-    cout << "\n7) Quit";
-    cout << "\n\nEnter your choice: ";
-
-    cin >> choice;
     
     do {
+        cout << "\n1) Draw a horizontal line";
+        cout << "\n2) Draw a vertical line";
+        cout << "\n3) Draw a square";
+        cout << "\n4) Draw a square filled";
+        cout << "\n5) Draw a rectangle";
+        cout << "\n6) Draw a rectangle filled";
+        cout << "\n7) Quit";
+        cout << "\n\nEnter your choice: ";
+
+        cin >> choice;
         
         if (choice == 1){
             cout << "\nEnter the length of the line: ";
             cin >> length;
-            drawHorizontalLine(length, 'x');
+            
+            if (length <= 0){
+                cout << "Length cannot be 0 or less\n";
+            }else{
+                drawHorizontalLine(length, 'x');
+            }
         }else if (choice == 2){
             cout << "\nEnter the height of the line: ";
             cin >> height;
-            drawVerticalLine(height);
+            
+            if (height <= 0){
+                cout << "Height cannot be 0 or less";
+            }else{
+                drawVerticalLine(height);
+            }
         }else if (choice == 3){
             cout << "\nEnter the dimension of the square: ";
             cin >> length;
@@ -69,7 +78,7 @@ int main() {
             cin >> height;
             drawRectangleFilled(length, height);
         }else if (choice == 7){
-            //no code needed for now
+            return 0;
         }else {
             cout << "\nInvalid choice\n";
         }
@@ -84,14 +93,16 @@ int main() {
 }
 
 void drawHorizontalLine(int length, char ch){
-    cout << "hi";
     for (int i = 0; i < length; i++){
         cout << ch;
     }
     cout << "\n";
 }
 void drawVerticalLine(int height, char ch){
-    cout << "hi";
+    for (int i = 0; i < height; i++){
+        cout << ch << "\n";
+    }
+    cout << "\n";
 }
 void drawSquare(int length, char ch){
     cout << "hi";
