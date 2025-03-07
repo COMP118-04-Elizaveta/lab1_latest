@@ -42,7 +42,6 @@
 			isa = PBXGroup;
 			children = (
 				DE516F3C2D7AE4CB00732F88 /* lab0.cpp */,
-				DE516F332D7AE46B00732F88 /* lab1_latest */,
 				DE516F322D7AE46B00732F88 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -53,13 +52,6 @@
 				DE516F312D7AE46B00732F88 /* lab1_latest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		DE516F332D7AE46B00732F88 /* lab1_latest */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = lab1_latest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
