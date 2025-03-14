@@ -9,15 +9,15 @@
 using namespace std;
 
 //global variables
-const char SYMBOL = 'x';
+char symbol = 'x';
 
 //function prototypes
-void drawHorizontalLine(int length, char ch = SYMBOL);
-void drawVerticalLine(int height, char ch = SYMBOL);
-void drawSquare(int length, char ch = SYMBOL);
-void drawSquareFilled(int length);
-void drawRectangle(int length, int height);
-void drawRectangleFilled(int length, int height);
+void drawHorizontalLine(int length, char ch = symbol);
+void drawVerticalLine(int height, char ch = symbol);
+void drawSquare(int length, char ch = symbol);
+void drawSquareFilled(int length, char ch = symbol);
+void drawRectangle(int length, int height, char ch = symbol);
+void drawRectangleFilled(int length, int height, char ch = symbol);
 
 
 
@@ -42,28 +42,35 @@ int main() {
         if (choice == 1){
             cout << "\nEnter the length of the line: ";
             cin >> length;
+            cout << "\nEnter symbol to use: ";
+            cin >> symbol;
             
             if (length <= 0){
                 cout << "Length cannot be 0 or less\n";
             }else{
-                drawHorizontalLine(length, 'x');
+                drawHorizontalLine(length, symbol);
             }
         }else if (choice == 2){
             cout << "\nEnter the height of the line: ";
             cin >> height;
             
             if (height <= 0){
-                cout << "Height cannot be 0 or less";
+                cout << "Height cannot be 0 or less\n";
             }else{
                 drawVerticalLine(height);
             }
         }else if (choice == 3){
             cout << "\nEnter the dimension of the square: ";
             cin >> length;
-            drawSquare(length);
+            
+            if (length <= 0){
+                cout << "Dimensions cannot be 0 or less\n";
+            }else{
+                drawSquare(length);
+            }
         }else if (choice == 4){
             cout << "\nEnter the dimension of the square: ";
-            cin >> height;
+            cin >> length;
             drawSquareFilled(length);
         }else if (choice == 5){
             cout << "\nEnter the length of the rectangle: ";
@@ -97,24 +104,80 @@ void drawHorizontalLine(int length, char ch){
         cout << ch;
     }
     cout << "\n";
+    
 }
+
 void drawVerticalLine(int height, char ch){
     for (int i = 0; i < height; i++){
         cout << ch << "\n";
     }
-    cout << "\n";
+    
 }
+
+//draw a square with open middle
 void drawSquare(int length, char ch){
-    cout << "hi";
+    for (int i = 0; i < length; i++){
+        cout << ch;
+    }
+    
+    cout << "\n";
+    
+    for (int i = 0; i < length; i++){
+        cout << ch;
+        for (int i = 0; i < length - 2; i++){
+                cout << " ";
+        }
+            cout << ch << endl;
+    }
+    for (int i = 0; i < length; i++){
+        cout << ch;
+    }
 }
-void drawSquareFilled(int length){
-    cout << "hi";
+
+//draw a square with closed middle
+void drawSquareFilled(int length, char ch){
+    for (int i = 0; i < length; i++){
+        cout << ch;
+    }
+    
+    cout << "\n";
+    
+    for (int i = 0; i < length; i++){
+        cout << ch;
+        for (int i = 0; i < length - 2; i++){
+                cout << " ";
+        }
+            cout << ch << endl;
+    }
+    for (int i = 0; i < length; i++){
+        cout << ch;
 }
-void drawRectangle(int length, int height){
+}
+
+//draw a rectangle with open middle
+void drawRectangle(int length, int height, char ch){
+    for (int i = 0; i < height; i++){
+        for (int j = 0; j < length; j++){
+            if (i == 0 || j == 0 || i == height - 1 || j == length - 1){
+                cout << ch;
+            }else{
+                cout << " ";
+            }
+           
+        }
+        cout << endl;
+    }
     
 }
-void drawRectangleFilled(int length, int height){
-    
+
+//draw a rectangle with closed middle
+void drawRectangleFilled(int length, int height, char ch){
+    for (int i = 0; i < height; i++){
+        for (int j = 0; j < length; j++){
+            cout << ch;
+        }
+        cout << endl;
+    }
 }
 
 
