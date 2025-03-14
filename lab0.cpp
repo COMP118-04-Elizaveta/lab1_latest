@@ -211,7 +211,9 @@ void drawRectangleFilled(int length, int height, char ch){
 }
 
 //draws a random number of shapes, i.e. automated testing function
-void drawShapes(int numShapes) {
+void drawShapes(const int numShapes) {
+    assert(numShapes > 0);
+    
     int shapeType;
     int shapeLength;
     int shapeChar;
@@ -222,7 +224,7 @@ void drawShapes(int numShapes) {
     
         shapeType = 1 + rand() % 6;
         shapeLength = 5 + rand() % 16; //@todo remove 5, 16, 33 and 94
-        shapeChar = 33 + rand() % 127 - 33; //printable ascii characters
+        shapeChar = 33 + rand() % 94; //printable ascii characters
     
 
         switch (shapeType) {
@@ -252,6 +254,7 @@ void drawShapes(int numShapes) {
                 break;
             default:
                 cerr << "Should not happen";
+                assert(false);
                 break;
         }
     }
