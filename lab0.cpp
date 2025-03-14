@@ -8,19 +8,20 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <cassert>
 using namespace std;
 
 //global variables
 char symbol = 'x';
 
 //function prototypes
-void drawHorizontalLine(int length, char ch = symbol);
+void drawHorizontalLine(const int length, char ch = symbol);
 void drawVerticalLine(int height, char ch = symbol);
 void drawSquare(int length, char ch = symbol);
 void drawSquareFilled(int length, char ch = symbol);
 void drawRectangle(int length, int height, char ch = symbol);
 void drawRectangleFilled(int length, int height, char ch = symbol);
-void drawShapes(int numShapes);
+void drawShapes(const int numShapes);
 
 
 
@@ -126,7 +127,9 @@ int main() {
     return 0;
 }
 
-void drawHorizontalLine(int length, char ch){
+void drawHorizontalLine(const int length, char ch){
+    assert(length > 0);
+    
     for (int i = 0; i < length; i++){
         cout << ch;
     }
