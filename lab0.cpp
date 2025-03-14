@@ -213,33 +213,44 @@ void drawShapes(int numShapes) {
     int shapeLength;
     int shapeChar;
     
-    cout << "\nDraws " << numShapes << " random shapes";
+    cout << "\nDraws " << numShapes << " random shapes\n";
     
-    shapeType = 1 + rand() % 6;
-    shapeLength = 5 + rand() % 16; //@todo remove 5, 16, 33 and 94
-    shapeChar = 33 + rand() % 127 - 33; //printable ascii characters
+    for (int i = 0; i < numShapes; i++){
     
-    for (int i = 0; i <= numShapes; i++){
-    switch (shapeType) {
-    case 1:
-            drawHorizontalLine(shapeLength, shapeChar);
-            break;
-    case 2:
-            drawVerticalLine(shapeLength, shapeChar);
-            break;
-    case 3:
-            break;
-    case 4:
-            break;
-    case 5:
-            drawRectangle(shapeLength + 3, shapeLength, shapeChar);
-            break;
-    case 6:
-            break;
-    default:
-            cerr << "Should not happen";
-            break;
-    }
+        shapeType = 1 + rand() % 6;
+        shapeLength = 5 + rand() % 16; //@todo remove 5, 16, 33 and 94
+        shapeChar = 33 + rand() % 127 - 33; //printable ascii characters
+    
+
+        switch (shapeType) {
+            case 1:
+                drawHorizontalLine(shapeLength, shapeChar);
+                cout << endl;
+                break;
+            case 2:
+                drawVerticalLine(shapeLength, shapeChar);
+                cout << endl;
+                break;
+            case 3:
+                drawSquare(shapeLength, shapeChar);
+                cout << endl;
+                break;
+            case 4:
+                drawSquareFilled(shapeLength, shapeChar);
+                cout << endl;
+                break;
+            case 5:
+                drawRectangle(shapeLength + 3, shapeLength, shapeChar);
+                cout << endl;
+                break;
+            case 6:
+                drawRectangleFilled(shapeLength + 3, shapeLength, shapeChar);
+                cout << endl;
+                break;
+            default:
+                cerr << "Should not happen";
+                break;
+        }
     }
 }
 
