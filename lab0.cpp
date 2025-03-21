@@ -21,6 +21,8 @@ char symbol = 'x';
 
 //function prototypes
 void showMenu();
+void initializeArrays(int shapeTy[], int shapeLen[], char shapeCh[], const int arrSize);
+void drawArrays(int shapeTy[], int shapeLen[], char shapeCh[], const int arrSize);
 void drawHorizontalLine(const int length, char ch = symbol);
 void drawVerticalLine(int height, char ch = symbol);
 void drawSquare(int length, char ch = symbol);
