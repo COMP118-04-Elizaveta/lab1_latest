@@ -1,9 +1,12 @@
-//
-//  lab1.cpp
-//  lab1
-//
-//  Created by Elizaveta Vasilieva on 07/03/2025.
-//
+/** \file lab0.cpp
+ * \brief this program has multiple functions to draw shapes
+ * \details -
+ * \author Elizaveta Vasilieva
+ * \version 0.1
+ * \date 03/2025
+ * \copyright University of Nicosia.
+ */
+
 
 #include <iostream>
 #include <cstdlib>
@@ -23,7 +26,10 @@ void drawRectangle(int length, int height, char ch = symbol);
 void drawRectangleFilled(int length, int height, char ch = symbol);
 void drawShapes(const int numShapes);
 
-
+/**
+* main
+* This function prints the optins for drawing and then depending on user input draws the selected shape(s).
+*/
 
 int main() {
 
@@ -127,7 +133,7 @@ int main() {
     return 0;
 }
 
-void drawHorizontalLine(const int length, char ch){
+void drawHorizontalLine(const int length, const char ch){
     assert(length > 0);
     
     for (int i = 0; i < length; i++){
@@ -137,7 +143,7 @@ void drawHorizontalLine(const int length, char ch){
     
 }
 
-void drawVerticalLine(int height, char ch){
+void drawVerticalLine(const int height, const char ch){
     for (int i = 0; i < height; i++){
         cout << ch << "\n";
     }
@@ -145,7 +151,7 @@ void drawVerticalLine(int height, char ch){
 }
 
 //draw a square with open middle
-void drawSquare(int length, char ch){
+void drawSquare(const int length, const char ch){
     for (int i = 0; i < length; i++){
         cout << ch;
     }
@@ -165,7 +171,7 @@ void drawSquare(int length, char ch){
 }
 
 //draw a square with closed middle
-void drawSquareFilled(int length, char ch){
+void drawSquareFilled(const int length, const char ch){
     for (int i = 0; i < length; i++){
         cout << ch;
     }
@@ -185,7 +191,7 @@ void drawSquareFilled(int length, char ch){
 }
 
 //draw a rectangle with open middle
-void drawRectangle(int length, int height, char ch){
+void drawRectangle(int length, int height, const char ch){
     for (int i = 0; i < height; i++){
         for (int j = 0; j < length; j++){
             if (i == 0 || j == 0 || i == height - 1 || j == length - 1){
@@ -201,7 +207,7 @@ void drawRectangle(int length, int height, char ch){
 }
 
 //draw a rectangle with closed middle
-void drawRectangleFilled(int length, int height, char ch){
+void drawRectangleFilled(const int length, const int height, const char ch){
     for (int i = 0; i < height; i++){
         for (int j = 0; j < length; j++){
             cout << ch;
