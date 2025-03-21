@@ -20,6 +20,7 @@ using namespace std;
 char symbol = 'x';
 
 //function prototypes
+void showMenu();
 void drawHorizontalLine(const int length, char ch = symbol);
 void drawVerticalLine(int height, char ch = symbol);
 void drawSquare(int length, char ch = symbol);
@@ -46,14 +47,7 @@ int main() {
     srand(static_cast<unsigned int>(time(NULL)));
     
     do {
-        cout << "\n1) Draw a horizontal line";
-        cout << "\n2) Draw a vertical line";
-        cout << "\n3) Draw a square";
-        cout << "\n4) Draw a square filled";
-        cout << "\n5) Draw a rectangle";
-        cout << "\n6) Draw a rectangle filled";
-        cout << "\n7) Draw a random number of shapes";
-        cout << "\n8) Quit";
+        showMenu();
         cout << "\n\nEnter your choice: ";
 
         cin >> choice;
@@ -135,6 +129,20 @@ int main() {
 
 
     return 0;
+}
+
+/**
+ * This function prints the options for drawing.
+*/
+void showMenu(){
+    cout << "\n1) Draw a horizontal line";
+    cout << "\n2) Draw a vertical line";
+    cout << "\n3) Draw a square";
+    cout << "\n4) Draw a square filled";
+    cout << "\n5) Draw a rectangle";
+    cout << "\n6) Draw a rectangle filled";
+    cout << "\n7) Draw a random number of shapes";
+    cout << "\n8) Quit";
 }
 
 /**
