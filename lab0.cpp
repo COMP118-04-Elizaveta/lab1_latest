@@ -21,14 +21,17 @@ char symbol = 'x';
 
 //function prototypes
 void showMenu();
+
 void initializeArrays(int shapeTy[], int shapeLen[], char shapeCh[], const int arrSize);
-void drawArrays(int shapeTy[], int shapeLen[], char shapeCh[], const int arrSize);
+void drawArrays(const int shapeTy[], const int shapeLen[], const char shapeCh[], const int arrSize);
+
 void drawHorizontalLine(const int length, char ch = symbol);
 void drawVerticalLine(int height, char ch = symbol);
 void drawSquare(int length, char ch = symbol);
 void drawSquareFilled(int length, char ch = symbol);
 void drawRectangle(int length, int height, char ch = symbol);
 void drawRectangleFilled(int length, int height, char ch = symbol);
+
 void drawShapes(const int numShapes);
 
 /**
@@ -45,6 +48,10 @@ int main() {
     int choice;
     int length = 0;
     int height = 0;
+    int shapeTy[MAX_SHAPES] = {1, 2, 3, 4, 5, 6, 1, 2, 3, 4};
+    int shapeLen[MAX_SHAPES] = {5, 6, 7, 8, 9, 10, 11, 12, 13, 14};
+    char shapeCh[MAX_SHAPES] = {'A','A','A','A','A','A','A','A','A','B'}; //@todo FIX
+    
     
     srand(static_cast<unsigned int>(time(NULL)));
     
@@ -119,6 +126,8 @@ int main() {
         }else if (choice == 7){
             drawShapes(MAX_SHAPES);
         }else if (choice == 8){
+            drawArrays(shapeTy, shapeLen, shapeCh, MAX_SHAPES);
+        }else if (choice == 9){
             return 0;
         }else {
             cerr << "\nInvalid choice\n";
@@ -127,7 +136,7 @@ int main() {
     } while (choice != 8);
     
 
-    cout << "\n7Have a nice day!\n";
+    cout << "\nHave a nice day!\n";
 
 
     return 0;
@@ -144,7 +153,48 @@ void showMenu(){
     cout << "\n5) Draw a rectangle";
     cout << "\n6) Draw a rectangle filled";
     cout << "\n7) Draw a random number of shapes";
-    cout << "\n8) Quit";
+    cout << "\n8) Draw a number of shapes defined by arrays";
+    cout << "\n9) Quit";
+}
+
+/**
+* Draws shapes defined by three arrays
+*/
+void drawArrays(const int shapeTy[], const int shapeLen[], const char shapeCh[], const int arrSize){
+    cout << "\nDraws " << arrSize << " shapes\n";
+    
+    for (int i = 0; i < arrSize; i++){
+    switch (shapeTy[i]) {
+        case 1:
+            drawHorizontalLine(shapeLen[i], shapeCh[i]);
+            cout << endl;
+            break;
+        case 2:
+            drawVerticalLine(shapeLen[i], shapeCh[i]);
+            cout << endl;
+            break;
+        case 3:
+            drawSquare(shapeLen[i], shapeCh[i]);
+            cout << endl;
+            break;
+        case 4:
+            drawSquareFilled(shapeLen[i], shapeCh[i]);
+            cout << endl;
+            break;
+        case 5:
+            drawRectangle(shapeLen[i] + 3, shapeLen[i], shapeCh[i]);
+            cout << endl;
+            break;
+        case 6:
+            drawRectangleFilled(shapeLen[i] + 3, shapeLen[i], shapeCh[i]);
+            cout << endl;
+            break;
+        default:
+            cerr << "Should not happen";
+            assert(false);
+            break;
+    }
+    }
 }
 
 /**
