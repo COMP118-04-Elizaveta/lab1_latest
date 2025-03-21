@@ -126,6 +126,7 @@ int main() {
         }else if (choice == 7){
             drawShapes(MAX_SHAPES);
         }else if (choice == 8){
+            initializeArrays(shapeTy, shapeLen, shapeCh, MAX_SHAPES);
             drawArrays(shapeTy, shapeLen, shapeCh, MAX_SHAPES);
         }else if (choice == 9){
             return 0;
@@ -153,12 +154,14 @@ void showMenu(){
     cout << "\n5) Draw a rectangle";
     cout << "\n6) Draw a rectangle filled";
     cout << "\n7) Draw a random number of shapes";
-    cout << "\n8) Draw a number of shapes defined by arrays";
+    cout << "\n8) Draw a number of shapes defined by random arrays";
     cout << "\n9) Quit";
 }
 
 /**
 * Draws shapes defined by three arrays
+ @param shapeTy the type of shape, ex. rectangle, square
+ @param shapeLen the length/dimension of the shape
 */
 void drawArrays(const int shapeTy[], const int shapeLen[], const char shapeCh[], const int arrSize){
     cout << "\nDraws " << arrSize << " shapes\n";
@@ -195,6 +198,13 @@ void drawArrays(const int shapeTy[], const int shapeLen[], const char shapeCh[],
             break;
     }
     }
+}
+
+/**
+* Randomply generates arrSize of shapes which are stored in 3 arrays
+*/
+void initializeArrays(int shapeTy[], int shapeLen[], char shapeCh[], const int arrSize){
+    cout << "Randomly filling arrays with " << arrSize << " shapes";
 }
 
 /**
