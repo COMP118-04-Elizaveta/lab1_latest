@@ -7,7 +7,6 @@
  * \copyright University of Nicosia.
  */
 
-
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
@@ -15,6 +14,9 @@
 using namespace std;
 
 //global variables
+/**
+ * If no symbol specified in a drawing function, then this symbol is used as the default one to draw a shape.
+ */
 char symbol = 'x';
 
 //function prototypes
@@ -27,8 +29,10 @@ void drawRectangleFilled(int length, int height, char ch = symbol);
 void drawShapes(const int numShapes);
 
 /**
-* main
-* This function prints the optins for drawing and then depending on user input draws the selected shape(s).
+ * main
+ * This function prints the options for drawing and then depending on user input draws the selected shape(s).
+ * it is the driver function, i.e. Front-end.
+ * @return zero
 */
 
 int main() {
@@ -190,7 +194,12 @@ void drawSquareFilled(const int length, const char ch){
 }
 }
 
-//draw a rectangle with open middle
+/**
+* Draw a rectangle, with open middle.
+ * @param height The height of the rectangle
+ * @param length The length of the rectangle
+ * @param ch The default symbol used for drawing.
+*/
 void drawRectangle(int length, int height, const char ch){
     for (int i = 0; i < height; i++){
         for (int j = 0; j < length; j++){
@@ -206,7 +215,12 @@ void drawRectangle(int length, int height, const char ch){
     
 }
 
-//draw a rectangle with closed middle
+/**
+* Draw a rectangle, with closed middle.
+ * @param height The height of the rectangle
+ * @param length The length of the rectangle
+ * @param ch The default symbol used for drawing.
+*/
 void drawRectangleFilled(const int length, const int height, const char ch){
     for (int i = 0; i < height; i++){
         for (int j = 0; j < length; j++){
