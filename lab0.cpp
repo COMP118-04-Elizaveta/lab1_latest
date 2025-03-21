@@ -137,6 +137,11 @@ int main() {
     return 0;
 }
 
+/**
+* Draws a horizontal line.
+ * @param length The length of the line
+ * @param ch The default symbol used for drawing.
+*/
 void drawHorizontalLine(const int length, const char ch){
     assert(length > 0);
     
@@ -147,6 +152,11 @@ void drawHorizontalLine(const int length, const char ch){
     
 }
 
+/**
+* Draws a vertical line.
+ * @param height The height of the line
+ * @param ch The default symbol used for drawing.
+*/
 void drawVerticalLine(const int height, const char ch){
     for (int i = 0; i < height; i++){
         cout << ch << "\n";
@@ -154,7 +164,11 @@ void drawVerticalLine(const int height, const char ch){
     
 }
 
-//draw a square with open middle
+/**
+* Draw a square with open middle
+ * @param length The dimensions for the square, which will be the same.
+ * @param ch The default symbol used for drawing.
+*/
 void drawSquare(const int length, const char ch){
     for (int i = 0; i < length; i++){
         cout << ch;
@@ -174,7 +188,11 @@ void drawSquare(const int length, const char ch){
     }
 }
 
-//draw a square with closed middle
+/**
+* Draw a square with closed middle
+ * @param length The dimensions for the square, which will be the same.
+ * @param ch The default symbol used for drawing.
+*/
 void drawSquareFilled(const int length, const char ch){
     for (int i = 0; i < length; i++){
         cout << ch;
@@ -230,6 +248,10 @@ void drawRectangleFilled(const int length, const int height, const char ch){
     }
 }
 
+/**
+* Draw a random number of shapes
+ * @param numShapes a constant which controls the amount of random shapes to be drawn
+*/
 //draws a random number of shapes, i.e. automated testing function
 void drawShapes(const int numShapes) {
     assert(numShapes > 0);
