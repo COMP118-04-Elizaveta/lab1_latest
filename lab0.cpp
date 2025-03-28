@@ -162,11 +162,15 @@ void showMenu(){
 * Draws shapes defined by three arrays
  @param shapeTy the type of shape, ex. rectangle, square
  @param shapeLen the length/dimension of the shape
+ @param shapeCh the character used for drawing shapes
+ @param arrSize the amount of shapes to be drawn
 */
 void drawArrays(const int shapeTy[], const int shapeLen[], const char shapeCh[], const int arrSize){
     cout << "\nDraws " << arrSize << " shapes\n";
     
-    for (int i = 0; i < arrSize; i++){
+    int i;
+    
+    for (i = 0; i < arrSize; i++){
     switch (shapeTy[i]) {
         case 1:
             drawHorizontalLine(shapeLen[i], shapeCh[i]);
@@ -197,14 +201,26 @@ void drawArrays(const int shapeTy[], const int shapeLen[], const char shapeCh[],
             assert(false);
             break;
     }
+        assert (i == arrSize);
     }
 }
 
 /**
 * Randomply generates arrSize of shapes which are stored in 3 arrays
+ * @param shapeTy randomly generated shape type ex. filled square
+ * @param shapeLen randomply generated dimension of shape
+ * @param shapeCh randomly generated chatacter used to draw the shape
+ * @param arrSize total amount of shapes that will be drawn
 */
 void initializeArrays(int shapeTy[], int shapeLen[], char shapeCh[], const int arrSize){
     cout << "Randomly filling arrays with " << arrSize << " shapes";
+    
+    for (int i = 0; i < arrSize; i++){
+        shapeTy[i] = 1 + rand() % 6;
+        shapeLen[i] = 5 + rand() % 16; //@todo remove the 5 and 16
+        shapeCh[i] = 33 + rand() % (126 - 33); //printable ascii characters
+    }
+    
 }
 
 /**
@@ -322,7 +338,6 @@ void drawRectangleFilled(const int length, const int height, const char ch){
 * Draw a random number of shapes
  * @param numShapes a constant which controls the amount of random shapes to be drawn
 */
-//draws a random number of shapes, i.e. automated testing function
 void drawShapes(const int numShapes) {
     assert(numShapes > 0);
     
